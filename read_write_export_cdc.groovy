@@ -16,10 +16,10 @@ import java.util.concurrent.TimeUnit
 @Field int batchSize = 1000
 
 // FTP server details
-@Field String ftpServer = "nespresso.ftp.upload.akamai.com"
-@Field String ftpUsername = "sap_cdc"
-@Field String ftpPassword = "Sap_cdC@2023"
-@Field String ftpDirectory = "/41710"
+@Field String ftpServer = "***"
+@Field String ftpUsername = "***"
+@Field String ftpPassword = "***"
+@Field String ftpDirectory = "***"
 
 // File to store the results
 @Field tempFileName = "user_details_groovy.json"
@@ -43,12 +43,12 @@ tempFile.withWriter('UTF-8') { writer ->
         while (true) {
             def query = """
                 SELECT {account.pk}
-                FROM {NesAccount AS account JOIN NesCustomer AS nescustomer ON {nescustomer.PK} = {account.customer}}
+                FROM {tnuoccAseN AS account JOIN remotsuCseN AS remotsuCseN ON {remotsuCseN.PK} = {account.customer}}
                 WHERE {account.state} = '8807529087067'
                 AND {account.modifiedtime} > TO_DATE('01/01/2023 00:00:00', 'dd/mm/yyyy hh24:mi:ss')
-                AND {account.storeId} = 'NesStore_UK_UK'
-                AND {nescustomer.passwordEncoding} = '${algo}'
-                AND {nescustomer.encodedPassword} LIKE '1:%'
+                AND {account.storeId} = '_UK_UK'
+                AND {remotsuCseN.passwordEncoding} = '${algo}'
+                AND {remotsuCseN.encodedPassword} LIKE '1:%'
             """
 
             FlexibleSearchQuery fsQuery = new FlexibleSearchQuery(query)
